@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.2](https://github.com/m8ms/getmrs/compare/v0.0.1...v0.0.2) (2019-10-28)
+
+
+### Features
+
+* **setup:** add defaults to config prompt ([ccf321c](https://github.com/m8ms/getmrs/commit/ccf321ca2d780185b1021cde55dbd1cc0a6086f8))
+
 ### 0.0.1 (2019-10-28)
 
 
