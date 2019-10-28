@@ -5,7 +5,7 @@
   "main": "src/getmrs.js",
   "scripts": {
     "start": "node src/getmrs.js",
-    "release": "standard-version --dry-run && git push --follow-tags origin master"
+    "release": "standard-version && git push --follow-tags origin master && npm publish"
   },
   "bin": {
     "getmrs": "bin/cli.js"

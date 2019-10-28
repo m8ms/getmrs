@@ -1,7 +1,7 @@
 const fs = require('fs')
 const api = require('./api.js')
 const inquirer = require('inquirer')
-const clc = require('cli-color')
+const { highlight } = require('./draw')
 
 module.exports = async function createConfig(configPath) {
 	const config = await inquirer.prompt([
@@ -21,10 +21,10 @@ module.exports = async function createConfig(configPath) {
 
 	api.setup(config)
 
-	const {data} = await api.getUserProjects()
-	const choices = data.map(({name}) => name)
+	const { data } = await api.getUserProjects()
+	const choices = data.map(({ name }) => name)
 
-	const {projects} = await inquirer.prompt({
+	const { projects } = await inquirer.prompt({
 		type: 'checkbox',
 		name: 'projects',
 		message: 'Projects you want to review (can be overriden with: "getmrs -p comma,sepparated,names; no selection == "all")',
@@ -40,7 +40,7 @@ module.exports = async function createConfig(configPath) {
 		(err) => {
 			if (err) throw err;
 			console.log(
-				`\nConfig saved to:\n${clc.xterm(123)(configPath)}\nRun script again to start using.\n`
+				`\nConfig saved to:\n${highlight(configPath)}\nRun script again to start using.\n`
 			);
 		})
 }
