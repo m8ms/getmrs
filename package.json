@@ -1,0 +1,25 @@
+{
+  "name": "getmrs",
+  "version": "0.0.0",
+  "description": "CLI tool to list gitlab merge requests that need your review",
+  "main": "getmrs.js",
+  "scripts": {
+    "start": "node getmrs.js",
+    "release": "standard-version --dry-run && git push --follow-tags origin master"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "cli-color": "^2.0.0",
+    "columnify": "^1.5.4",
+    "minimist": "^1.2.0",
+    "moment": "^2.24.0",
+    "terminal-link": "^2.0.0"
+  },
+  "devDependencies": {
+    "dotenv-flow": "^3.1.0",
+    "standard-version": "^7.0.0"
+  }
+}
