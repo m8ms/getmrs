@@ -12,20 +12,25 @@ const args = parseArgs(process.argv.slice(2))
 const FORCE_CONFIG = args.c
 const CONFIG_FILE_PATH = path.join(os.homedir(), '.getmrs_config')
 
-if (FORCE_CONFIG) {
-	createConfig(CONFIG_FILE_PATH)
-} else {
-	try {
-		const config = fs.readFileSync(CONFIG_FILE_PATH)
-		run(JSON.parse(config))
-	} catch (err) {
-		if (err.code === 'ENOENT') {
-			console.log('First, we must generate a config file at: ' + CONFIG_FILE_PATH + '\n')
-			console.log(slightlyDarker('You can overwrite this config later by running "getmrs -c"\n'))
-			createConfig(CONFIG_FILE_PATH)
-		} else {
-			console.error(err)
-		}
+try {
+	const configRaw = fs.readFileSync(CONFIG_FILE_PATH)
+	const config = JSON.parse(configRaw)
+
+	if (FORCE_CONFIG) {
+		console.log('Overwriting config at: ' + CONFIG_FILE_PATH + '\n')
+		createConfig(CONFIG_FILE_PATH, config)
+	} else {
+		run(config)
+	}
+
+} catch (err) {
+
+	if (err.code === 'ENOENT') {
+		console.log('First, we must generate a config file at: ' + CONFIG_FILE_PATH + '\n')
+		console.log(slightlyDarker('You can overwrite this config later by running "getmrs -c"\n'))
+		createConfig(CONFIG_FILE_PATH)
+	} else {
+		console.error(err)
 	}
 }
 

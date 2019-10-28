@@ -25,12 +25,12 @@ it will ask you to provide these two essential pieces of information:
 Then the script will lookup your projects and prompt you to select which of them
 you would like to include in the CR list.
 
-Project list can be overriden with `-p param`:
+Project list can be overridden with `-p param`:
 ```shell script
 getmrs -p your,project,names,or,ids,comma,sepparated
 ```
 
-### Reseting config
+### Resetting config
 The settings are written to: `<your_home_dir>/.getmrs_config`. 
 
 You can update them by running: 
