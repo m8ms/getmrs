@@ -2,14 +2,22 @@
   "name": "getmrs",
   "version": "0.0.0",
   "description": "CLI tool to list gitlab merge requests that need your review",
-  "main": "getmrs.js",
+  "main": "src/getmrs.js",
   "scripts": {
-    "start": "node getmrs.js",
+    "start": "node src/getmrs.js",
     "release": "standard-version --dry-run && git push --follow-tags origin master"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "bin": {
+    "getmrs": "bin/cli.js"
+  },
+  "keywords": [
+    "gitlab",
+    "cli",
+    "merge requests",
+    "colaboration"
+  ],
+  "author": "Piotr Martyniak",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.19.0",
     "cli-color": "^2.0.0",

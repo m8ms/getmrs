@@ -25,7 +25,7 @@ const SPACER = {
   'autor': '',
   'projekt': '',
   'wisi już...': '',
-  'github ⚓️': ''
+  'gitlab ⚓️': ''
 }
 
 api.setup({
