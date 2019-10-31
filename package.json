@@ -3,21 +3,28 @@
   "version": "0.0.2",
   "description": "CLI tool to list gitlab merge requests that need your review",
   "main": "src/getmrs.js",
+  "author": "Piotr Martyniak",
+  "license": "MIT",
   "scripts": {
     "start": "node src/getmrs.js",
+    "format": "prettier --write src/**/*",
     "release": "standard-version && git push --follow-tags origin master && npm publish"
   },
   "bin": {
     "getmrs": "bin/cli.js"
   },
+  "repository": "https://github.com/m8ms/getmrs",
   "keywords": [
     "gitlab",
     "cli",
     "merge requests",
     "colaboration"
   ],
-  "author": "Piotr Martyniak",
-  "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn format"
+    }
+  },
   "dependencies": {
     "axios": "^0.19.0",
     "cli-color": "^2.0.0",
@@ -28,6 +35,7 @@
     "terminal-link": "^2.0.0"
   },
   "devDependencies": {
-    "standard-version": "^7.0.0"
+    "husky": "^3.0.9",
+    "prettier": "1.18.2"
   }
 }
